@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+// api url for fetching the users
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 export const getUsers = () => axios.get(API_URL);
