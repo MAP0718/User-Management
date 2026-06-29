@@ -85,7 +85,7 @@ const App = () => {
     }
   };
 
-  // Numerical Sorting & Search Logic
+  // Numerical Sorting & Search
   const processedUsers = useMemo(() => {
     let result = users.filter(u => {
       const matchesSearch = (u.firstName + u.lastName + u.email).toLowerCase().includes(searchTerm.toLowerCase());
