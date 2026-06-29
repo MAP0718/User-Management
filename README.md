@@ -5,7 +5,7 @@ In this project, let's build a **User Management Dashboard** by applying the con
 ### Refer to the video below:
 
 <p>LINK URL FOR REPOSITORY : https://github.com/MAO0718/user-management-app </p>
-<p>DEMO LINK (If Deployed) : https://user-management-bice-gamma.vercel.app  </p>
+<p>DEMO LINK : https://user-management-bice-gamma.vercel.app  </p>
 
 
 <br/>
