@@ -1,74 +1,63 @@
-User Management Dashboard
+# User Management Dashboard
 
-A simple and responsive web application built with React to manage user details
-using the JSONPlaceholder mock backend API. This dashboard allows users to view,
-add, edit, and delete user records with integrated search, sorting, and
-pagination.
+In this project, let's build a **User Management Dashboard** by applying the concepts we have learned till now.
 
-Setup and Run Instructions
+### Refer to the video below:
 
-Prerequisites
+<p>LINK URL FOR REPOSITORY : https://github.com/MAO0718/user-management-app </p>
 
-  - Node.js (Version 18 or higher recommended)
-  - npm (Node Package Manager)
 
-Installation
+<br/>
+<div style="text-align: center;">
+  
+</div>
+<br/>
 
-1.  Clone or download the source code to your local machine.
-2.  Open your terminal and navigate to the project root directory:
-    cd user-management-app
-3.  Install the necessary dependencies:
-    npm install
+### Design Files
 
-Running the Application
+<details>
+<summary>Click to view</summary>
 
-1.  Start the development server:
-    npm run dev
-2.  Open your browser and navigate to the local URL provided by Vite (usually
-    http://localhost:5173).
+<div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+  <p><strong>Desktop View:</strong> High-level table view with Search and Filter controls.</p>
+  <p><strong>Mobile View:</strong> Responsive overflow-x table with touch-friendly action buttons.</p>
+  <p><strong>Form Modal:</strong> Centered pop-up for adding and editing user details.</p>
+</div>
 
-Folder Structure
+</details>
 
-src/
-├── api/
-│   └── userService.js        # Axios API service layer
-├── components/
-│   ├── FilterPopup.jsx       # Multi-field filtering modal
-│   ├── Pagination.jsx        # Navigation and limit controls
-│   ├── UserForm.jsx          # Add/Edit user modal with validation
-│   └── UserTable.jsx         # Data display and sorting
-├── utils/
-│   └── validators.js         # Client-side form validation logic
-├── App.jsx                   # Main application state and logic
-├── index.css                 # Tailwind CSS directives
-└── main.jsx                  # Application entry point
+<br/>
 
-Engineering Assumptions
+### Project Overview
 
-1.  Name Mapping: The JSONPlaceholder API provides a single name field. For the
-    purpose of this dashboard, I assumed the first word of the string represents
-    the First Name and the remaining part represents the Last Name.
-2.  Department Mapping: Since the API does not include a specific department
-    field, I mapped the company.name property from the API response to serve as
-    the user's Department.
-3.  Data Persistence: JSONPlaceholder is a mock REST API that does not persist
-    changes to its server. While the application successfully sends POST, PUT,
-    and DELETE requests, the data resets to its original state upon page
-    refresh.
+This application demonstrates a full CRUD (Create, Read, Update, Delete) workflow using a mock REST API. It features a clean, responsive interface and handles common data-management tasks like sorting, filtering, and pagination.
 
-Challenges Faced and Reflections
+### Key Features
 
-1.  Mock API Limitations (500 Errors): A major challenge was handling updates
-    and deletions for users added locally. The mock API only recognizes IDs 1
-    through 10. Attempting to modify an ID greater than 10 results in a 500
-    Server Error. I implemented logic to catch these specific errors and update
-    the local application state regardless, ensuring a seamless experience for
-    the user.
-2.  Numerical Sorting Logic: Standard JavaScript array sorting can treat IDs as
-    strings, placing "10" before "2". I implemented custom numerical comparison
-    logic to ensure the ID column remains strictly serial and sorted correctly.
-3.  Responsive Design: Tables are difficult to display on small mobile screens.
-    I utilized Tailwind CSS with overflow-x-auto containers to ensure the data
-    remains accessible without breaking the layout, along with flexible flexbox
-    layouts for the header controls.
+- **Fetch & View:** Display a list of users from the JSONPlaceholder API.
+- **Add & Edit:** Modal-based forms with client-side validation for user details.
+- **Delete:** Safety confirmation prompt before removing a record.
+- **Search:** Real-time search by name or email.
+- **Filter:** Targeted filtering by first name, last name, email, and department.
+- **Numerical Sorting:** Custom logic to ensure IDs are sorted 1, 2, 3... 10.
+- **Pagination:** Selectable row limits (10, 25, 50, 100).
 
+### Tech Stack & Concepts Learned
+
+- **React Hooks:** Managed application state using `useState`, `useEffect`, and `useMemo`.
+- **API Integration:** Utilized `Axios` for handling GET, POST, PUT, and DELETE requests.
+- **Responsive UI:** Built a mobile-first layout using `Tailwind CSS`.
+- **Data Mapping:** Transformed external API data (splitting names and mapping company to department).
+- **Error Handling:** Implemented catch blocks to handle mock API 500 errors and network failures.
+
+### Engineering Assumptions
+
+- **Name Logic:** The API `name` string is split into First and Last names using space as a delimiter.
+- **Department Logic:** The `company.name` field is used as a fallback for the Department field.
+- **Persistence:** Since the API is a read-only mock, data changes are reflected locally in the state but reset upon page refresh.
+
+### Setup Instructions
+
+1.  Navigate to the project directory: `cd user-management-app`
+2.  Install dependencies: `npm install`
+3.  Run the application: `npm run dev`
